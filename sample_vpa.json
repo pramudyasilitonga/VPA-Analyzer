@@ -1,0 +1,1227 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-20T01:19:29Z",
+                "generation": 1,
+                "labels": {
+                    "creator": "Fairwinds",
+                    "source": "goldilocks"
+                },
+                "name": "goldilocks-nginx-demo",
+                "namespace": "demo",
+                "resourceVersion": "102458",
+                "uid": "1bbae824-a5c4-45a5-a809-0e2018832814"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "nginx-demo"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-20T01:20:12Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "nginx",
+                            "lowerBound": {
+                                "cpu": "136m",
+                                "memory": "250Mi"
+                            },
+                            "target": {
+                                "cpu": "247m",
+                                "memory": "250Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "247m",
+                                "memory": "250Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "6379m",
+                                "memory": "608885293"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-19T08:12:04Z",
+                "generation": 3,
+                "labels": {
+                    "app": "payment-gateway",
+                    "env": "production"
+                },
+                "name": "vpa-payment-gateway",
+                "namespace": "prod-payment",
+                "resourceVersion": "204811",
+                "uid": "a3f2c891-7b4e-4d12-9f01-8821aa003001"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "payment-gateway"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-19T08:45:00Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "payment-gateway",
+                            "lowerBound": {
+                                "cpu": "420m",
+                                "memory": "384Mi"
+                            },
+                            "target": {
+                                "cpu": "850m",
+                                "memory": "512Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "850m",
+                                "memory": "512Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "2000m",
+                                "memory": "1Gi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-18T14:30:11Z",
+                "generation": 2,
+                "labels": {
+                    "app": "auth-service",
+                    "env": "staging"
+                },
+                "name": "vpa-auth-service",
+                "namespace": "staging-auth",
+                "resourceVersion": "198442",
+                "uid": "b7e1d902-3c5a-4e88-a112-7733bb004002"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "auth-service"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-18T15:02:33Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "auth-service",
+                            "lowerBound": {
+                                "cpu": "120m",
+                                "memory": "256Mi"
+                            },
+                            "target": {
+                                "cpu": "320m",
+                                "memory": "384Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "320m",
+                                "memory": "384Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "800m",
+                                "memory": "768Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-17T02:05:47Z",
+                "generation": 5,
+                "labels": {
+                    "app": "transaction-engine",
+                    "env": "production"
+                },
+                "name": "vpa-transaction-engine",
+                "namespace": "core-banking",
+                "resourceVersion": "312907",
+                "uid": "c4a8f613-9d2b-4f77-b223-6644cc005003"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "StatefulSet",
+                    "name": "transaction-engine"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-17T03:18:22Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "transaction-engine",
+                            "lowerBound": {
+                                "cpu": "800m",
+                                "memory": "1536Mi"
+                            },
+                            "target": {
+                                "cpu": "1200m",
+                                "memory": "2Gi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "1200m",
+                                "memory": "2Gi"
+                            },
+                            "upperBound": {
+                                "cpu": "4000m",
+                                "memory": "4Gi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-16T11:44:19Z",
+                "generation": 1,
+                "labels": {
+                    "app": "email-dispatcher",
+                    "env": "production"
+                },
+                "name": "vpa-email-dispatcher",
+                "namespace": "prod-notification",
+                "resourceVersion": "145220",
+                "uid": "d5b9e724-1a6c-4c99-c334-7755dd006004"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "email-dispatcher"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-16T12:10:05Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "email-dispatcher",
+                            "lowerBound": {
+                                "cpu": "50m",
+                                "memory": "128Mi"
+                            },
+                            "target": {
+                                "cpu": "180m",
+                                "memory": "256Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "180m",
+                                "memory": "256Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "500m",
+                                "memory": "512Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-15T09:22:38Z",
+                "generation": 2,
+                "labels": {
+                    "app": "report-worker",
+                    "env": "development"
+                },
+                "name": "vpa-report-worker",
+                "namespace": "dev-analytics",
+                "resourceVersion": "88731",
+                "uid": "e6c0f835-2b7d-4a10-d445-8866ee007005"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "report-worker"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-15T10:05:41Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "report-worker",
+                            "lowerBound": {
+                                "cpu": "200m",
+                                "memory": "512Mi"
+                            },
+                            "target": {
+                                "cpu": "450m",
+                                "memory": "768Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "450m",
+                                "memory": "768Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "1000m",
+                                "memory": "1536Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-14T16:08:52Z",
+                "generation": 4,
+                "labels": {
+                    "app": "stock-api",
+                    "env": "production"
+                },
+                "name": "vpa-stock-api",
+                "namespace": "prod-inventory",
+                "resourceVersion": "176554",
+                "uid": "f7d1a946-3c8e-4b21-e556-9977ff008006"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "stock-api"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-14T17:30:18Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "stock-api",
+                            "lowerBound": {
+                                "cpu": "310m",
+                                "memory": "448Mi"
+                            },
+                            "target": {
+                                "cpu": "620m",
+                                "memory": "640Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "620m",
+                                "memory": "640Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "1500m",
+                                "memory": "1280Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-13T07:55:03Z",
+                "generation": 1,
+                "labels": {
+                    "app": "cart-service",
+                    "env": "staging"
+                },
+                "name": "vpa-cart-service",
+                "namespace": "staging-checkout",
+                "resourceVersion": "92341",
+                "uid": "08e2b057-4d9f-4c32-f667-aa8800090007"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "cart-service"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-13T08:40:27Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "cart-service",
+                            "lowerBound": {
+                                "cpu": "95m",
+                                "memory": "192Mi"
+                            },
+                            "target": {
+                                "cpu": "275m",
+                                "memory": "320Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "275m",
+                                "memory": "320Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "700m",
+                                "memory": "640Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-12T20:18:44Z",
+                "generation": 6,
+                "labels": {
+                    "app": "risk-scorer",
+                    "env": "production"
+                },
+                "name": "vpa-risk-scorer",
+                "namespace": "prod-fraud",
+                "resourceVersion": "267890",
+                "uid": "19f3c168-5e0a-4d43-b778-bb9900100008"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "risk-scorer"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-12T21:05:59Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "risk-scorer",
+                            "lowerBound": {
+                                "cpu": "550m",
+                                "memory": "1024Mi"
+                            },
+                            "target": {
+                                "cpu": "980m",
+                                "memory": "1536Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "980m",
+                                "memory": "1536Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "3000m",
+                                "memory": "3Gi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-11T04:33:16Z",
+                "generation": 2,
+                "labels": {
+                    "app": "metrics-collector",
+                    "env": "infrastructure"
+                },
+                "name": "vpa-metrics-collector",
+                "namespace": "infra-monitoring",
+                "resourceVersion": "55432",
+                "uid": "2a04d279-6f1b-4e54-c889-cc0000110009"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "DaemonSet",
+                    "name": "metrics-collector"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-11T05:12:08Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "metrics-collector",
+                            "lowerBound": {
+                                "cpu": "25m",
+                                "memory": "64Mi"
+                            },
+                            "target": {
+                                "cpu": "150m",
+                                "memory": "128Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "150m",
+                                "memory": "128Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "400m",
+                                "memory": "256Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-10T13:27:55Z",
+                "generation": 3,
+                "labels": {
+                    "app": "profile-api",
+                    "env": "production"
+                },
+                "name": "vpa-profile-api",
+                "namespace": "prod-customer",
+                "resourceVersion": "133778",
+                "uid": "3b15e380-702c-4f65-a990-dd1100120010"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "profile-api"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-10T14:15:30Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "profile-api",
+                            "lowerBound": {
+                                "cpu": "180m",
+                                "memory": "320Mi"
+                            },
+                            "target": {
+                                "cpu": "410m",
+                                "memory": "448Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "410m",
+                                "memory": "448Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "900m",
+                                "memory": "896Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-09T18:49:02Z",
+                "generation": 2,
+                "labels": {
+                    "app": "refund-processor",
+                    "env": "staging"
+                },
+                "name": "vpa-refund-processor",
+                "namespace": "staging-payment",
+                "resourceVersion": "102334",
+                "uid": "4c26f491-813d-4076-a001-ee2200130011"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "refund-processor"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-09T19:33:44Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "refund-processor",
+                            "lowerBound": {
+                                "cpu": "240m",
+                                "memory": "384Mi"
+                            },
+                            "target": {
+                                "cpu": "530m",
+                                "memory": "576Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "530m",
+                                "memory": "576Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "1200m",
+                                "memory": "1152Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-08T06:14:28Z",
+                "generation": 4,
+                "labels": {
+                    "app": "shipment-tracker",
+                    "env": "production"
+                },
+                "name": "vpa-shipment-tracker",
+                "namespace": "prod-logistics",
+                "resourceVersion": "189901",
+                "uid": "5d37a502-924e-4187-b112-ff3300140012"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "shipment-tracker"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-08T07:02:11Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "shipment-tracker",
+                            "lowerBound": {
+                                "cpu": "380m",
+                                "memory": "512Mi"
+                            },
+                            "target": {
+                                "cpu": "715m",
+                                "memory": "896Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "715m",
+                                "memory": "896Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "1800m",
+                                "memory": "1792Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-07T22:41:37Z",
+                "generation": 7,
+                "labels": {
+                    "app": "balance-sync",
+                    "env": "production"
+                },
+                "name": "vpa-balance-sync",
+                "namespace": "core-ledger",
+                "resourceVersion": "298776",
+                "uid": "6e48a613-a35f-4298-b223-a04400150013"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "StatefulSet",
+                    "name": "balance-sync"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-07T23:28:50Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "balance-sync",
+                            "lowerBound": {
+                                "cpu": "700m",
+                                "memory": "1024Mi"
+                            },
+                            "target": {
+                                "cpu": "1050m",
+                                "memory": "1280Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "1050m",
+                                "memory": "1280Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "3500m",
+                                "memory": "2560Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-06T10:03:21Z",
+                "generation": 3,
+                "labels": {
+                    "app": "elasticsearch-proxy",
+                    "env": "production"
+                },
+                "name": "vpa-elasticsearch-proxy",
+                "namespace": "prod-search",
+                "resourceVersion": "156443",
+                "uid": "7f59a724-b46a-4309-c334-b05500160014"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "elasticsearch-proxy"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-06T11:20:45Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "elasticsearch-proxy",
+                            "lowerBound": {
+                                "cpu": "150m",
+                                "memory": "768Mi"
+                            },
+                            "target": {
+                                "cpu": "340m",
+                                "memory": "1024Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "340m",
+                                "memory": "1024Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "800m",
+                                "memory": "2048Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-05T15:36:09Z",
+                "generation": 1,
+                "labels": {
+                    "app": "invoice-generator",
+                    "env": "production"
+                },
+                "name": "vpa-invoice-generator",
+                "namespace": "prod-billing",
+                "resourceVersion": "121009",
+                "uid": "8a60b835-c57a-4410-d445-c06600170015"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "CronJob",
+                    "name": "invoice-generator"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-05T16:08:33Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "invoice-generator",
+                            "lowerBound": {
+                                "cpu": "100m",
+                                "memory": "192Mi"
+                            },
+                            "target": {
+                                "cpu": "225m",
+                                "memory": "288Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "225m",
+                                "memory": "288Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "600m",
+                                "memory": "576Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-04T03:52:14Z",
+                "generation": 2,
+                "labels": {
+                    "app": "api-gateway",
+                    "env": "production"
+                },
+                "name": "vpa-api-gateway",
+                "namespace": "prod-platform",
+                "resourceVersion": "334512",
+                "uid": "9a71c946-d68a-4521-e556-d07700180016"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "api-gateway"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-04T04:45:07Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "api-gateway",
+                            "lowerBound": {
+                                "cpu": "500m",
+                                "memory": "640Mi"
+                            },
+                            "target": {
+                                "cpu": "1350m",
+                                "memory": "896Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "1350m",
+                                "memory": "896Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "4000m",
+                                "memory": "1792Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-03T12:17:48Z",
+                "generation": 1,
+                "labels": {
+                    "app": "session-store",
+                    "env": "staging"
+                },
+                "name": "vpa-session-store",
+                "namespace": "staging-platform",
+                "resourceVersion": "77821",
+                "uid": "0a82d057-e79a-4632-f667-e08800190017"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "session-store"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-03T13:05:22Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "session-store",
+                            "lowerBound": {
+                                "cpu": "75m",
+                                "memory": "160Mi"
+                            },
+                            "target": {
+                                "cpu": "195m",
+                                "memory": "224Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "195m",
+                                "memory": "224Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "450m",
+                                "memory": "448Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-02T08:29:56Z",
+                "generation": 5,
+                "labels": {
+                    "app": "loan-calculator",
+                    "env": "production"
+                },
+                "name": "vpa-loan-calculator",
+                "namespace": "core-lending",
+                "resourceVersion": "245667",
+                "uid": "1a93e168-f80a-4743-a778-f09900200018"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "loan-calculator"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-02T09:18:40Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "loan-calculator",
+                            "lowerBound": {
+                                "cpu": "260m",
+                                "memory": "384Mi"
+                            },
+                            "target": {
+                                "cpu": "575m",
+                                "memory": "704Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "575m",
+                                "memory": "704Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "1400m",
+                                "memory": "1408Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-07-01T19:55:33Z",
+                "generation": 2,
+                "labels": {
+                    "app": "webhook-receiver",
+                    "env": "production"
+                },
+                "name": "vpa-webhook-receiver",
+                "namespace": "prod-integration",
+                "resourceVersion": "167890",
+                "uid": "2a04f279-a91a-4854-b889-a00000210019"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "webhook-receiver"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-07-01T20:42:15Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "webhook-receiver",
+                            "lowerBound": {
+                                "cpu": "90m",
+                                "memory": "96Mi"
+                            },
+                            "target": {
+                                "cpu": "1",
+                                "memory": "192Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "1",
+                                "memory": "192Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "2000m",
+                                "memory": "384Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "apiVersion": "autoscaling.k8s.io/v1",
+            "kind": "VerticalPodAutoscaler",
+            "metadata": {
+                "creationTimestamp": "2026-06-30T05:40:12Z",
+                "generation": 1,
+                "labels": {
+                    "app": "audit-logger",
+                    "env": "production"
+                },
+                "name": "vpa-audit-logger",
+                "namespace": "prod-compliance",
+                "resourceVersion": "99887",
+                "uid": "3a150380-b02a-4965-c990-b01100220020"
+            },
+            "spec": {
+                "targetRef": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "name": "audit-logger"
+                },
+                "updatePolicy": {
+                    "updateMode": "Off"
+                }
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2026-06-30T06:25:48Z",
+                        "status": "True",
+                        "type": "RecommendationProvided"
+                    }
+                ],
+                "recommendation": {
+                    "containerRecommendations": [
+                        {
+                            "containerName": "audit-logger",
+                            "lowerBound": {
+                                "cpu": "40m",
+                                "memory": "128Mi"
+                            },
+                            "target": {
+                                "cpu": "125m",
+                                "memory": "160Mi"
+                            },
+                            "uncappedTarget": {
+                                "cpu": "125m",
+                                "memory": "160Mi"
+                            },
+                            "upperBound": {
+                                "cpu": "350m",
+                                "memory": "320Mi"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

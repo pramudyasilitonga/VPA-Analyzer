@@ -1,0 +1,9 @@
+sample_vpa.json
+vpa_recommendations.xlsx
+__pycache__/
+*.pyc
+.git/
+.gitignore
+README.md
+cronjob.yaml
+.dockerignore
